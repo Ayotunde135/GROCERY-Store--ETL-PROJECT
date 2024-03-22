@@ -1,44 +1,46 @@
-Tesca Grocery Chain Project
+# Tesca Grocery Analysis ETL Project
 
-This is a project to build an Enterprise Data Warehouse to address the analytic requirements of Tesca Grocery Chain. The goal is to provide insights into product movement, sales, promotions, vendor information, and more. The project also includes the building of Data Mart Cubes for functional areas and using Tableau and Power BI to design Data Visualizations.
+## Introduction
+Welcome to the Tesca Grocery Analysis project, a comprehensive endeavor aimed at constructing an Enterprise Data Warehouse (EDW) to meet the analytical needs of Tesca Grocery Chain. This project involves the development of an end-to-end data pipeline using SQL Server Integration Services (SSIS). The primary objective is to derive valuable insights into various aspects of the business, including product movement, sales trends, promotional impacts, vendor dynamics, and more. The project also involves the creation of Data Mart Cubes for different functional areas and the utilization of visualization tools such as Tableau and Power BI to create intuitive data representations.
 
-Background
+## Background
+Tesca Grocery Chain is a large-scale operation comprising 830 stores spread across 74 states. The business model revolves around distributing products sourced from certified vendors to its stores, offering a diverse range of 40 products across 7 departments. Sales transactions are facilitated through barcode scanning at Point of Sale (POS) systems. Various promotional strategies, including coupons, temporary price reductions, advertisements, and in-store promotions, are employed to drive sales. Crucial data related to vendor transactions, salesperson overtime, and POS device replacements are meticulously tracked. Administrative access to both Analysis and Relational Database Instances has been granted by the Database Administrator.
 
-Tesca Grocery Chain consists of 830 stores in 74 states
-Distribute products received from certified vendors to stores
-Stores 40 products in 7 departments, such as frozen foods and diary
-Bar codes are scanned directly into the cash registers’ POS System by Sales person
-Sales Products are promoted via coupons, temporary price reductions, ads, and in store promotions
-Purchasing department received products from vendor
-Sales Persons overtime hours are captured in Excel by Sales Manager
-Backup of the Tesca Grocery Chain Transaction Processing System has been provided to you
-Database Administrator has granted full administrative privileges on both Analysis and Relational Database Instances
+## Project Steps:
+The project involves several steps in the ETL (Extract, Transform, Load) process:
+
+1. **Data Extraction from OLTP**: 
+   - Extract data from the OLTP system, including sales transactions, vendor transactions, and other relevant data.
+
+2. **Data Transformation and Loading to Staging Area**:
+   - Transform the extracted data as per business requirements.
+   - Load the transformed data into a staging area for further processing.
+
+3. **Loading Dimensional Data into EDW**:
+   - Transform and load dimensional data (e.g., product, store, time dimensions) into the Enterprise Data Warehouse (EDW).
+
+4. **Loading Fact Data into EDW**:
+   - Transform and load fact data (e.g., sales transactions) into the EDW, possibly from both OLTP and flat files.
+
+5. **Data Mart Cube Creation**:
+   - Create Data Mart Cubes for various functional areas (e.g., sales, inventory) to facilitate efficient analysis.
+
+6. **Visualization using Tableau and Power BI**:
+   - Utilize visualization tools such as Tableau and Power BI to create intuitive and insightful data representations for business users.
+
+## Files Included:
+- `Load From OLTP to Staging (DIMENSION).sql`
+- `Load Staging Fact from OLTP and Flatfile.sql`
+- `Loading From Staging To EDW (DIMENSION).sql`
+- `Loading from OLTP to Staging (Fact).sql`
+- `Loading from Staging to EDW (Fact).sql`
+- `SQL DATE$HOUR DIMENSION.sql`
+- `README.md`
+
+## Instructions:
+1. Execute the SQL scripts in the provided order to build the end-to-end data pipeline.
+2. Customize the scripts as per specific business requirements and database configurations.
+3. Utilize visualization tools like Tableau and Power BI to analyze and visualize the data stored in the EDW and Data Mart Cubes.
 
 
-Analytic Requirements
-
-Need to know what is selling in the stores each day to evaluate product movement, as well as to see how sales are impacted by promotions
-Need to understand the mix of products in a customer’s market basket
-Changes to Point of Sales Device on each channel are recorded to know the frequency of channel POS device replacement
-Need to understand the most ordered products from each Vendor in each store
-The management decided to track changes to vendor information to determine the impact on the delivery services
-Sales Manager is interested to know the effects of product rebranding on Sales
-Human Resources Management needs to know the effects of changes to marital status on salesperson’s overtime hours
-Needs to perform sales analysis on overall product brand sales and rebrand product sales
-Purchasing Manager needs to know the efficient vendors based on differential days between order date and delivery date
-Sales Manager needs to know what are the most demanding products for each time period of the day
-
-
-Deliverables
-
-Build an Enterprise Data warehousing that addresses the analytic requirements
-Build Data Mart Cubes for functional areas based on the analytic requirements using SQL Server Analysis services (Using both Multidimensional and Tabular Models)
-Using Tableau and Power BI to design Data Visualisations for business users and management to enable informed decisions
-
-
-Technologies Used
-SQL Server Analysis Services (Multidimensional and Tabular Models),
-SSIS,
-VISUAL STUDIO,
-Tableau,
-Power BI.
+**Note:** This README serves as a guide to understanding the project structure and its components. Detailed documentation and code comments within the scripts provide further insights into the implementation specifics.
